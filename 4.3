@@ -1,0 +1,49 @@
+#include <iostream>
+using namespace std;
+
+int main() 
+{
+    int ilosc_el;
+    int element_tab;
+    int najwieksza_w;
+
+    cout << "Podaj ilosc elementow tablicy: " << endl;
+    cin >> ilosc_el;
+    cout << endl;
+
+	
+    int tab[ilosc_el];
+
+    for (int i = 0; i < ilosc_el; i++) 
+	{
+        cout << "Podaj " << i + 1 << " element tablicy: " << endl;
+        cout << endl;
+        cin >> element_tab;
+        tab[i] = element_tab;
+        cout << "\n" << endl;
+    }
+
+    for (int b = 0; b < ilosc_el; b++) 
+	{
+        cout << b + 1 << " elementem tablicy jest: " << tab[b] << endl;
+    }
+
+    cout << "\n" << endl;
+
+    najwieksza_w = tab[0];
+
+    for (int j = 0; j < ilosc_el; j++) 
+	{
+        if (tab[j] > najwieksza_w) 
+			{
+            	najwieksza_w = tab[j];
+        	}
+    }
+	
+    cout << "\n" << endl;
+	
+	cout << "Najwieksza z podanych wartosci jest: " << najwieksza_w << endl;
+
+
+    return 0;
+}
