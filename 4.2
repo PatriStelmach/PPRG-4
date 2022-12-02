@@ -1,0 +1,75 @@
+#include <iostream>
+
+using namespace std;
+
+int najczestszy_el(int tablica[], int ilosc) 
+{
+   int najcz_el[ilosc][2];
+   int liczba_powt = 0;
+   int najwiekszy[1][2] = {0, 0};
+
+	
+   for (int i = 0; i < ilosc; i++) 
+   {
+    for (int j = 0; j < ilosc; j++) 
+	{
+        if (tablica[i] == tablica[j]) 
+		{
+            liczba_powt++;
+        }
+    }
+    najcz_el[i][0] = tablica[i];
+    najcz_el[i][1] = liczba_powt;
+    liczba_powt = 0;
+   }
+
+   for (int i = 0; i < ilosc; i++) 
+   	{
+    	cout << "Element: " << najcz_el[i][0]<< " powtarza sie: "<< najcz_el[i][1] << " razy." << endl;
+   	}
+   for (int i = 0; i < ilosc; i++) 
+   {
+    if (najcz_el[i][1] > najwiekszy[0][1]) 
+		{
+        	najwiekszy[0][1] = najcz_el[i][1];
+        	najwiekszy[0][0] = najcz_el[i][0];
+    	}
+   }
+   cout << "\n" << endl;
+	
+   cout << "Najczesciej powtarza sie: " << najwiekszy[0][0] << ", powtarza sie on: " << najwiekszy[0][1] << " razy." << endl;
+   cout << "\n" << endl;
+	
+   return 0;
+}
+
+
+int main() 
+{
+    int ilosc;
+    int el_tab;
+
+    cout << "Podaj ilosc elementow tablicy: " << endl;
+    cin >> ilosc;
+    int tab[ilosc];
+    cout << "\n" << endl;
+
+    for (int i = 0; i < ilosc; i++) 
+	{
+        cout << "Podaj " << i + 1 << " element tabeli: " << endl;
+        cin >> el_tab;
+        tab[i] = el_tab;
+        cout << "\n" << endl;
+    }
+
+    for (int i = 0; i < ilosc; i++) 
+	{
+        cout << i + 1 << " element tabeli to: " << tab[i] << endl;
+    }
+    cout << "\n" << endl;
+	
+    najczestszy_el(tab, ilosc);
+
+
+    return 0;
+}
